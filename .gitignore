@@ -1,0 +1,8 @@
+node_modules/
+notes/
+.log/
+tmp/
+temp/
+frames/
+*.org
+.projectile
