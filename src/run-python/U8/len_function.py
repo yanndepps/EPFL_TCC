@@ -20,3 +20,10 @@ employees.pop(1)
 num_employees = len(employees)
 mess = "Marie-Anne left the company. There are now " + str(num_employees) + " employees"
 print(mess)
+
+# sort in reverse alphabetical order
+employees.sort()
+employees.reverse()
+print(employees)
+
+# ---
