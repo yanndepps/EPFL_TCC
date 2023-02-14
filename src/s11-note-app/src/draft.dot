@@ -1,0 +1,26 @@
+digraph G {
+  size = "8, 8";
+  graph [splines=ortho, nodesep=0.5];
+  start [shape=plaintext];
+  node [shape=box];
+  start -> terminal_input [shape=box,style=dotted];
+  node [shape=doublecircle];
+  terminal_input -> {add, search};
+  node [shape=circle];
+  add -> run_again;
+  node [shape=plaintext];
+  add -> write_to_file [style=dotted];
+  node [shape=circle];
+  false -> run_again;
+  node [shape=doublecircle];
+  run_again -> yes -> terminal_input;
+  run_again -> no;
+  node [shape=circle];
+  no -> quit;
+  search -> {true, false};
+  node [shape=box];
+  true -> terminal_output [style=dotted];
+  true -> run_again;
+  node [shape=plaintext];
+  quit -> exit [style=dotted];
+}

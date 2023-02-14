@@ -1,0 +1,20 @@
+digraph G {
+  // graph [splines=ortho, nodesep=0.5];
+  node [shape=record];
+  size = "8, 8";
+  node [shape=plaintext];
+  start -> gen_random [style=dotted];
+  node [shape=record];
+  gen_random -> guess_input;
+  node [shape=ellipse];
+  guess_input -> {true, false, NaN};
+  node [shape=record];
+  true -> num_attempts; 
+  node [shape=plaintext];
+  num_attempts -> exit [style=dotted];
+  node [shape=record];
+  NaN -> nan_message;
+  nan_message -> exit [style=dotted];
+  false -> {bigger, smaller};
+  {bigger, smaller} -> guess_input [style=dotted];
+}

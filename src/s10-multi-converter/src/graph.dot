@@ -1,0 +1,22 @@
+digraph G {
+  size = "8, 8";
+  // graph [splines=ortho, nodesep=0.5];
+  start [shape=plaintext];
+  node [shape=box];
+  start -> user_input [shape=box,style=dotted];
+  node [shape=ellipse];
+  user_input -> {yes, no}; 
+  yes -> {celsius, inches, liters, undefined};
+  {celsius, inches, liters} -> is_input_num;
+  {celsius, inches, liters} -> NaN;
+  no -> quit;
+  node [shape=box];
+  NaN -> console_message;
+  is_input_num -> console_result;
+  console_message -> user_input [style=dotted];
+  console_result -> user_input [style=dotted];
+  undefined -> console_message; 
+  node [shape=plaintext];
+  quit -> exit [style=dotted];
+  node [shape=box];
+}
